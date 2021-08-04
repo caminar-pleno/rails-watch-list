@@ -3,6 +3,7 @@
   <% @lists.each do |list| %>
     <li><%= link_to list.name, list_path(list) %></li>
     <%= link_to  "borrar", list_path(list.id), method: :delete, data: { confirm: "estas seguro?" } %>
+    <%= link_to  "New Bookmark", new_list_bookmark_path(list.id), class: "btn btn-primary"%>
   <% end %>
 </ul>
 <p><%= link_to "New lists", new_list_path, class: "btn btn-primary"%></p>
