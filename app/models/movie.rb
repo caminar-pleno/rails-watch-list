@@ -1,7 +1,6 @@
 class Movie < ActiveRecord::Base
-    has_many :bookmarks, dependent: :destroy
+    has_many :bookmarks
     belongs_to :list
-    validates :title, presence: true
+    validates :title, presence: true, uniqueness: true
     validates :overview, presence: true
-    validates :title, uniqueness: true
 end
