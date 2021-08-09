@@ -10,15 +10,16 @@ before_action :set_bookmark, only: :destroy
     @bookmark = Bookmark.new(bookmark_params)
     @bookmark.list = @list
     if @bookmark.save
-      redirect_to list_path(@bookmark)
+      redirect_to list_path(@list)
     else
       render :new
     end
   end
 
   def destroy
-      @bookmark.destroy
-      redirect_to list_path(@list)
+    @list = @bookmark.list
+    @bookmark.destroy
+    redirect_to list_path(@list)
   end
 
   private
@@ -26,7 +27,7 @@ before_action :set_bookmark, only: :destroy
   def bookmark_params
     params.require(:bookmark).permit(:comment, :rating, :movie_id)
   end
-
+  
   def set_list
     @list = List.find(params[:list_id])
   end
