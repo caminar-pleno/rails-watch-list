@@ -16,3 +16,18 @@
   height: 50vh;
   max-height: 400px;
 }
+
+.cards {
+  display: grid;
+  grid-gap: 16px;
+}
+
+.cards-list {
+  grid-template-columns: 1fr 1fr;
+}
+
+.cards-body {
+  flex: 1 1 auto;
+  min-height: 1px;
+  padding: 1.25rem;
+}
